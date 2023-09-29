@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 18px;
+    font-family: Josefin Sans;
+    font-weight: 400;
+    background-color: #e4e5f1;
+}
+
+.App {
+    background-image: url("./images/bg-desktop-dark.jpg");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: auto;
+}
+
+@media only screen and (min-width: 1336px) {
+    .App {
+        background-size: 100% auto;
+    }
+}
+
+.todo-container {
+    width: 375px;
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+@media only screen and (min-width: 600px) {
+    .todo-container {
+        width: 475px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .todo-container {
+        width: 500px;
+    }
+}
+
+.top-menu {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+top-menu .left {
+    float: left;
+}
+
+.top-menu .left h1 {
+    text-align: left;
+    color: #fff;
+    float: left;
+    letter-spacing: 12px;
+}
+
+.top-menu .right {
+    float: right;
+}
+
+.top-menu .right .mode {
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.new-input-task {
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: Josefin Sans;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.new-input-task::placeholder {
+    font-family: Josefin Sans;
+    font-size: 18px;
+}
+
+.tasks-list {
+    margin-top: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+}
+
+.task {
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.task .checkbox-container {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 12px 10px 10px 10px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    border: 1px solid hsl(233, 11%, 84%);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.checkmark:hover {
+    border-color: hsl(192, 100%, 67%) hsl(280, 87%, 65%) hsl(280, 87%, 65%) hsl(192, 100%, 67%);
+}
+
+/* Create the checkmark (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    /* Style the checkmark/indicator */
+    left: 7px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* When the checkbox is checked, add a gradient background */
+
+input[type="checkbox"]:checked ~ .checkmark {
+    background: linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+/* Show the checkmark when checked */
+
+input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
+}
+
+.task .task-input {
+    float: left;
+    margin: 5px 0px 0px 0px;
+    padding: 10px;
+    width: 80%;
+    border: none;
+    font-size: 16px;
+}
+
+.task .task-input-marked {
+    text-decoration: line-through;
+    color: hsl(236, 9%, 61%);
+}
+
+.task button.delete {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 22px;
+    border: none;
+    background-color: transparent;
+}
+
+.todo-ccc {
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0 0 4px 4px;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: hsl(236, 9%, 61%);
+    font-size: 16px;
+}
+
+.todo-count {
+    transition: 0.5s;
+    font-size: 15px;
+}
+
+.todo-count:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.clear-completed {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.clear-completed:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.todo-filter {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    color: hsl(236, 9%, 61%);
+    padding: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 16px;
+}
+
+.filter-btns {
+    margin: 0 10px;
+}
+
+.allBtn,
+.activeBtn,
+.completedBtn {
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 700;
+}
+
+.selected {
+    color: hsl(220, 98%, 61%);
+}
+
+.on-hover {
+    color: hsl(235, 19%, 35%);
+}
+
+@media only screen and (min-width: 600px) {
+    .todo-filtering {
+        justify-content: space-between;
+    }
+    .todo-filter {
+        background-color: transparent;
+        margin-top: -56px;
+        box-shadow: none;
+        margin-right: 80px;
+    }
+}
